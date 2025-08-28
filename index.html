@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>超人乒乓-Fitness - 專業桌球訓練課程</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', 'Microsoft JhengHei', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo img {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+        
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .phone {
+            color: #666;
+            text-decoration: none;
+        }
+        
+        .line-btn {
+            background: #00c300;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .tag {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background: #00c300;
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #3b82f6;
+            border: 2px solid white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: #f8fafc;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: #1e293b;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #1e293b;
+        }
+        
+        .feature-card p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+        
+        /* Gallery Section */
+        .gallery {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .gallery-category {
+            margin-bottom: 60px;
+        }
+        
+        .category-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #1e293b;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .gallery-item {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: contain;
+            background: #f8fafc;
+        }
+        
+        .gallery-item-content {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .gallery-item h4 {
+            font-size: 1.2rem;
+            color: #1e293b;
+        }
+        
+        /* Pricing Section */
+        .pricing {
+            padding: 80px 0;
+            background: #f8fafc;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .pricing-card {
+            background: white;
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .pricing-card.popular {
+            border: 3px solid #3b82f6;
+            transform: scale(1.05);
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #3b82f6;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #1e293b;
+        }
+        
+        .pricing-card .description {
+            color: #64748b;
+            margin-bottom: 20px;
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #3b82f6;
+            margin-bottom: 20px;
+        }
+        
+        .price-note {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-bottom: 30px;
+        }
+        
+        .features-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .features-list li {
+            padding: 8px 0;
+            color: #64748b;
+        }
+        
+        .features-list li:before {
+            content: "✓";
+            color: #00c300;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: #1e293b;
+            color: white;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .contact-item {
+            text-align: center;
+        }
+        
+        .contact-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #3b82f6;
+        }
+        
+        .contact-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .contact-item p {
+            color: #94a3b8;
+            line-height: 1.6;
+        }
+        
+        .cta-section {
+            background: #334155;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .cta-section h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            color: #94a3b8;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #000;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-content img {
+            width: 32px;
+            height: 32px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .hero {
+                padding: 100px 0 60px;
+            }
+            
+            .pricing-card.popular {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="FEB2E9A5-F402-4B05-A407-ED363426269A(1)-BtF9fvOo.png" alt="超人乒乓-Fitness">
+                <span class="logo-text">超人乒乓-Fitness</span>
+            </div>
+            <div class="header-contact">
+                <a href="tel:07-335-2598" class="phone">📞 07-335-2598</a>
+                <a href="https://lin.ee/uAHaVRO" class="line-btn">Line報名</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>超人乒乓-Fitness</h1>
+            <p>團體班科學化桌球教學，專注基本功訓練，讓每個人都能安全、開心地享受桌球樂趣</p>
+            <div class="hero-tags">
+                <span class="tag">團體班教學</span>
+                <span class="tag">基本功訓練</span>
+                <span class="tag">科學化方法</span>
+                <span class="tag">全齡適用</span>
+            </div>
+            <div class="hero-buttons">
+                <a href="https://lin.ee/uAHaVRO" class="btn btn-primary">Line立即報名</a>
+                <a href="tel:07-335-2598" class="btn btn-secondary">電話諮詢</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">為什麼選擇超人乒乓？</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>團體班教學</h3>
+                    <p>從兒童到樂齡長者，團體班學習讓每個人都能安全、開心地享受桌球樂趣</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏓</div>
+                    <h3>基本功訓練</h3>
+                    <p>專注基本功練習，運用科學化方法，打造扎實的桌球基礎</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⏰</div>
+                    <h3>體驗到吃到飽</h3>
+                    <p>從基礎體驗到深度學習，滿足不同程度的基本功訓練需求</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⭐</div>
+                    <h3>安全第一</h3>
+                    <p>配備專業AED設備，注重運動安全，讓每位學員都能在安全環境中學習成長</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery">
+        <div class="container">
+            <h2 class="section-title">真實教學環境</h2>
+            
+            <div class="gallery-category">
+                <h3 class="category-title">品牌形象</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="FEB2E9A5-F402-4B05-A407-ED363426269A(1)-BtF9fvOo.png" alt="品牌標誌">
+                        <div class="gallery-item-content">
+                            <h4>品牌標誌</h4>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="IMG_6704(1)-BocZiT2H.png" alt="專業桌球用品">
+                        <div class="gallery-item-content">
+                            <h4>專業桌球用品</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-category">
+                <h3 class="category-title">安全設備配置</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="IMG_5579(2)-DJQZp3hn.jpeg" alt="AED設備">
+                        <div class="gallery-item-content">
+                            <h4>配備專業AED設備，確保學員運動安全</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-category">
+                <h3 class="category-title">教學展示</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="IMG_5144(2)-wQh-Uno0.jpeg" alt="專業兒童指導">
+                        <div class="gallery-item-content">
+                            <h4>專業兒童指導</h4>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="IMG_9782(2)-CZ6x0RUb.jpeg" alt="團體課程教學">
+                        <div class="gallery-item-content">
+                            <h4>團體課程教學</h4>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="IMG_7661(3)-BuoNAVqh.jpeg" alt="理論課程講解">
+                        <div class="gallery-item-content">
+                            <h4>理論課程講解</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-category">
+                <h3 class="category-title">學員展示</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="IMG_5128(2)-bflxGpUm.jpeg" alt="學員認真練習">
+                        <div class="gallery-item-content">
+                            <h4>學員認真練習</h4>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="IMG_8159(2)-jnCwL9f-.jpeg" alt="優秀學員展示">
+                        <div class="gallery-item-content">
+                            <h4>優秀學員展示</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-category">
+                <h3 class="category-title">超人乒乓大家庭</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="IMG_0049(2)-DIHLEZj3.jpeg" alt="師生同樂">
+                        <div class="gallery-item-content">
+                            <h4>師生同樂，共享桌球樂趣</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing">
+        <div class="container">
+            <h2 class="section-title">課程方案</h2>
+            <p style="text-align: center; margin-bottom: 50px; font-size: 1.2rem; color: #64748b;">選擇最適合您的學習方案</p>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>體驗課程</h3>
+                    <p class="description">初次體驗，了解桌球基礎</p>
+                    <div class="price">NT$ 399</div>
+                    <ul class="features-list">
+                        <li>團體班專業指導</li>
+                        <li>基本功動作教學</li>
+                        <li>免費提供球拍</li>
+                        <li>場地使用</li>
+                    </ul>
+                    <a href="https://lin.ee/uAHaVRO" class="btn btn-primary">選擇方案</a>
+                </div>
+
+                <div class="pricing-card popular">
+                    <div class="popular-badge">最受歡迎</div>
+                    <h3>基礎課程</h3>
+                    <p class="description">團體班科學化學習桌球基本功</p>
+                    <div class="price">NT$ 1600</div>
+                    <p class="price-note">平均每堂 NT$ 400</p>
+                    <ul class="features-list">
+                        <li>4堂團體班課程</li>
+                        <li>正手反手基本功</li>
+                        <li>發球基本功訓練</li>
+                        <li>運動原理指導</li>
+                        <li>免費提供球拍</li>
+                    </ul>
+                    <a href="https://lin.ee/uAHaVRO" class="btn btn-primary">選擇方案</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>進階課程</h3>
+                    <p class="description">團體班深化基本功與健康效益</p>
+                    <div class="price">NT$ 6000</div>
+                    <p class="price-note">平均每堂 NT$ 375</p>
+                    <ul class="features-list">
+                        <li>16堂團體班課程</li>
+                        <li>進階基本功教學</li>
+                        <li>人體工學應用</li>
+                        <li>個人化動作調整</li>
+                        <li>免費提供專業球拍</li>
+                        <li>健康體適能評估</li>
+                    </ul>
+                    <a href="https://lin.ee/uAHaVRO" class="btn btn-primary">選擇方案</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>精英套餐</h3>
+                    <p class="description">團體班全方位基本功訓練課程</p>
+                    <div class="price">NT$ 3500</div>
+                    <ul class="features-list">
+                        <li>無限制團體班練習</li>
+                        <li>團體班科學指導</li>
+                        <li>運動傷害預防</li>
+                        <li>基本功強化訓練</li>
+                        <li>專業裝備提供</li>
+                        <li>健康管理諮詢</li>
+                    </ul>
+                    <a href="https://lin.ee/uAHaVRO" class="btn btn-primary">選擇方案</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">聯絡我們</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <h3>電話諮詢</h3>
+                    <p>07-335-2598</p>
+                    <p>平日 13:00-21:00<br>週六 09:00-21:00<br>週日 09:00-17:00</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">💬</div>
+                    <h3>Line官方帳號</h3>
+                    <p>線上報名諮詢<br>24小時快速回覆</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">⏰</div>
+                    <h3>營業時間</h3>
+                    <p>平日 13:00-21:00<br>週六 09:00-21:00<br>週日 09:00-17:00</p>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <h3>立即開始您的健康桌球之旅</h3>
+                <p>無論您是兒童、成人還是樂齡長者，超人乒乓-Fitness都有適合您的科學化課程。運用運動原理與人體工學，讓您安全、開心地享受桌球的樂趣與健康效益！</p>
+                <div class="hero-buttons">
+                    <a href="https://lin.ee/uAHaVRO" class="btn btn-primary">Line立即報名</a>
+                    <a href="tel:07-335-2598" class="btn btn-secondary">電話諮詢</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <img src="FEB2E9A5-F402-4B05-A407-ED363426269A(1)-BtF9fvOo.png" alt="超人乒乓-Fitness">
+                <span style="font-size: 1.2rem; font-weight: bold;">超人乒乓-Fitness</span>
+            </div>
+            <p style="color: #94a3b8; margin-bottom: 20px;">專業桌球教學，讓您的技術更上一層樓</p>
+            <div class="footer-links">
+                <a href="https://lin.ee/uAHaVRO">Line官方帳號</a>
+                <a href="tel:07-335-2598">07-335-2598</a>
+            </div>
+            <p style="color: #64748b; font-size: 0.9rem;">© 2024 超人乒乓-Fitness. 版權所有.</p>
+        </div>
+    </footer>
+</body>
+</html>
+
